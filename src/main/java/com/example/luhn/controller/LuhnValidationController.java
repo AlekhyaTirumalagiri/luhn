@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LuhnValidationController {
 	
-	private LuhnValidator validator = new LuhnValidator();
+	@Autowired
+	private LuhnValidator validator;
 
 	@RequestMapping("/luhn/{creditCardNumber}")
 	public String validate(@PathVariable String creditCardNumber) throws ValidationFailureException {
